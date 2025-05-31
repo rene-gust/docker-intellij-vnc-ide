@@ -20,6 +20,10 @@ This Docker image provides a minimal Ubuntu-based XFCE desktop environment acces
    docker-compose build
    ```
 
+4. Set up your PhpStorm plugin repository
+
+- Copy your PhpStorm plugin project into the `shared` folder.
+  > 📁 The `shared` folder on the host is mounted into the container at `/root/shared`.
 ---
 
 ## ▶️ Starting the Container

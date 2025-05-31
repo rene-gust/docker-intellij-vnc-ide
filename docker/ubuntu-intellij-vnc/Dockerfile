@@ -16,7 +16,7 @@ RUN apt-get update && \
     xfce4-goodies \
     xterm \
     dbus-x11 \
-    openjdk-24-jdk \
+    openjdk-23-jdk \
     && rm -rf /var/lib/apt/lists/*
 
 # Add a new user 'dockeruser' and set a password
@@ -49,13 +49,6 @@ RUN chmod +x /root/start-vnc.sh
 # Expose the SSH port
 EXPOSE 22
 EXPOSE 5900
-
-# install IntelliJ IDEA Community Edition
-COPY ideaIU-2025.1.1.1.tar.gz /root
-RUN cd /root && \
-    tar -xzf ideaIU-2025.1.1.1.tar.gz && \
-    rm ideaIU-2025.1.1.1.tar.gz && \
-    mv idea-IU-* idea
 
 # Create launcher script
 RUN echo '#!/bin/bash\n/root/idea/bin/idea.sh' > /root/start-intellij.sh && \
