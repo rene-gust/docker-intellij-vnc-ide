@@ -1,0 +1,13 @@
+services:
+  ubuntu-intellij-vnc:
+    build:
+      context: ./docker/ubuntu-intellij-vnc
+      dockerfile: Dockerfile
+    ports:
+      - "5900:5900"
+    volumes:
+      - ./shared:/root/shared
+      - ./idea:/root/idea
+    environment:
+      - USER=root
+    restart: unless-stopped
